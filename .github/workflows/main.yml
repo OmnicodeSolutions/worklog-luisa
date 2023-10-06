@@ -11,4 +11,4 @@ jobs:
         env:
           # Target branch
           PAGES_BRANCH: feat/github-actions
-          # TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
