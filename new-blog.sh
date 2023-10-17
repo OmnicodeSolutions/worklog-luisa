@@ -8,6 +8,9 @@ debug=$2
 new_file=content/blog/${today}.md
 cp daily-template.md ${new_file}.temp
 
+new_file_pt_br=content/blog_pt_br/${today}.md
+cp template-diario.md ${new_file_pt_br}.temp
+
 ## Title
 title="${today}"
 
@@ -16,6 +19,9 @@ if [ -z $debug ]
 then
    cat ${new_file}.temp | sed -e "s#TITLE#${title}#" > $new_file
     mv $new_file ${new_file}.temp
+
+   cat ${new_file_pt_br}.temp | sed -e "s#TITLE#${title}#" > $new_file_pt_br
+    mv $new_file_pt_br ${new_file_pt_br}.temp 
 else   
   echo "TITLE = ${title}"
 fi
@@ -25,6 +31,9 @@ if [ -z $debug ]
 then
     cat ${new_file}.temp | sed -e "s#DATE#${today}#" > $new_file
     mv $new_file ${new_file}.temp
+
+    cat ${new_file_pt_br}.temp | sed -e "s#DATE#${today}#" > $new_file_pt_br
+    mv $new_file_pt_br ${new_file_pt_br}.temp
 fi 
 
 ## Day of the year
@@ -50,6 +59,7 @@ fi
 PORCENT_DAYS=$(bc -l <<< "scale=2; ${DAY_NO}*100/${TOTAL_DAYS}")
 PORCENT_WEEKS=$(bc -l <<< "scale=2; ${WEEK_NO}*100/${TOTAL_WEEKS}")
 headlight="Today is ${WEEKDAY}, day ${DAY_NO} of ${TOTAL_DAYS} (${PORCENT_DAYS}%). We're in week ${WEEK_NO} of ${TOTAL_WEEKS} (${PORCENT_WEEKS}%)."
+headlight_pt_br="Hoje é ${WEEKDAY}, dia ${DAY_NO} de ${TOTAL_DAYS} (${PORCENT_DAYS}%). Estamos na semana ${WEEK_NO} de ${TOTAL_WEEKS} (${PORCENT_WEEKS}%)."
 
 # replace headlight
 if [ -z $debug ]
@@ -57,8 +67,12 @@ then
     cat ${new_file}.temp | sed -e "s#SUMMARY#${headlight}#" > $new_file
     rm ${new_file}.temp
 
+    cat ${new_file_pt_br}.temp | sed -e "s#SUMMARY#${headlight_pt_br}#" > $new_file_pt_br
+    rm ${new_file_pt_br}.temp
+
     git checkout -b feat/${today}
     echo "Now edit ${new_file}"
+    echo "Agora edite ${new_file_pt_br}"
 else 
     echo "SUMMARY = ${headlight}" 
 fi
