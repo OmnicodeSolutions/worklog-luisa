@@ -18,3 +18,12 @@ What I am going to do today:
 ## Activities executed
 
 (update): Today I did this and that
+
+## Learnings
+
+(update or delete this section)
+
+Today I learned
+```
+this = that
+```
