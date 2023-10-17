@@ -57,6 +57,7 @@ then
     cat ${new_file}.temp | sed -e "s#SUMMARY#${headlight}#" > $new_file
     rm ${new_file}.temp
 
+    git checkout -b feat/${today}
     echo "Now edit ${new_file}"
 else 
     echo "SUMMARY = ${headlight}" 
