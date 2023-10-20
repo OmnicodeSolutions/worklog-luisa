@@ -67,7 +67,7 @@ then
     cat ${new_file}.temp | sed -e "s#SUMMARY#${headlight}#" > $new_file
     rm ${new_file}.temp
 
-    cat ${new_file_pt_br}.temp | sed -e "s#SUMMARY#${headlight_pt_br}#" > $new_file_pt_br
+    cat ${new_file_pt_br}.temp | sed -e "s#RESUMO#${headlight_pt_br}#" > $new_file_pt_br
     rm ${new_file_pt_br}.temp
 
     git checkout -b feat/${today}
