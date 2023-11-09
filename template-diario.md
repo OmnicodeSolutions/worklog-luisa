@@ -5,11 +5,11 @@ date = DATE
 
 ---
 
-RESUMO 
+RESUMO
 
 ## Planejamento
 
-O que vou fazer hoje:  
+O que vou fazer hoje:
 
 - [ ] 1a tarefa
 - [ ] 2a tarefa

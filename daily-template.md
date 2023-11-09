@@ -5,11 +5,11 @@ date = DATE
 
 ---
 
-SUMMARY 
+SUMMARY
 
 ## Planning
 
-What I am going to do today: 
+What I am going to do today:
 
 - [ ] 1st task
 - [ ] 2nd task
