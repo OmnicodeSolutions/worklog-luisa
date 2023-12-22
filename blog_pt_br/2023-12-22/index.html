@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-22</strong></p>
+<hr />
+<p>Hoje é Sexta, dia 356 de 365 (97.53%). Estamos na semana 51 de 52 (98.07%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+terminar os testes pra página de login do <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/issues/1">Flutter Client</a></li>
+<li><input disabled="" type="checkbox"/>
+começar <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/issues/2">snippets CRUD</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje fiz mais pesquisas sobre como fazer o teste funcionar, mas não encontrei nada. Tentei algo semelhante ao que é indicado <a href="https://dev.to/manuelvargastapia/how-to-test-static-members-with-mockito-in-flutter-2139">aqui</a>, mas não deu certo. Estava ficando realmente frustrada e sentia que não estava indo a lugar algum, então decidi fazer outra coisa por um tempo. Atualizei a <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/blob/login/lib/login.dart">página de login</a> para não mudar de página quando o login falha, em vez disso, mostra uma mensagem de erro.</p>
+<p>Depois de concluir essa atualização, fiz uma limpeza e vi que o <code>flutter analyze</code> está capturando alguns erros nas ações do GitHub que não aparecem quando executo localmente, mas não tive tempo para investigar. Também há um aviso no <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/blob/login/test/login_test.mocks.dart">arquivo de mock de login</a> que não sei o que significa.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje aprendi que <code>setState(() {})</code> recarrega a página e você pode passar variáveis locais para atualizá-las. Você pode usar isso para ter uma variável para ocultar ou não ocultar um Widget. Tudo o que você precisa fazer é tornar sua classe um widget com estado (se ainda não for), declarar sua variável e usar uma cláusula <code>if(condição)</code> com o widget que deseja ocultar/mostrar. Será algo assim:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyHomePage </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">StatefulWidget</span><span> {
+</span><span>  </span><span style="color:#ebcb8b;">MyHomePage</span><span>({</span><span style="color:#ebcb8b;">Key</span><span> key}) : </span><span style="color:#bf616a;">super</span><span>(key: key);
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">@override
+</span><span>  </span><span style="color:#ebcb8b;">_MyHomePageState </span><span style="color:#8fa1b3;">createState</span><span>() =&gt; </span><span style="color:#ebcb8b;">_MyHomePageState</span><span>();
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">_MyHomePageState </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">State</span><span>&lt;</span><span style="color:#ebcb8b;">MyHomePage</span><span>&gt; {
+</span><span>  </span><span style="color:#ebcb8b;">bool</span><span> _clicked = </span><span style="color:#d08770;">false</span><span>;
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">@override
+</span><span>  </span><span style="color:#ebcb8b;">Widget </span><span style="color:#8fa1b3;">build</span><span>(</span><span style="color:#ebcb8b;">BuildContext</span><span> context) {
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#ebcb8b;">Scaffold</span><span>(
+</span><span>      body: </span><span style="color:#ebcb8b;">Center</span><span>(
+</span><span>        child: </span><span style="color:#ebcb8b;">Column</span><span>(
+</span><span>          children: &lt;</span><span style="color:#ebcb8b;">Widget</span><span>&gt;[
+</span><span>            </span><span style="color:#b48ead;">if</span><span> (_clicked) </span><span style="color:#ebcb8b;">Text</span><span>(</span><span style="color:#a3be8c;">&#39;Botão foi clicado&#39;</span><span>), </span><span style="color:#65737e;">// Se _clicked for true, o widget Text será mostrado
+</span><span>            </span><span style="color:#ebcb8b;">FlatButton</span><span>(
+</span><span>              onPressed: () {
+</span><span>                </span><span style="color:#8fa1b3;">setState</span><span>(() {
+</span><span>                  _clicked = </span><span style="color:#d08770;">true</span><span>;
+</span><span>                });
+</span><span>              },
+</span><span>              child: </span><span style="color:#ebcb8b;">Text</span><span>(</span><span style="color:#a3be8c;">&#39;Clique em mim&#39;</span><span>)
+</span><span>            ),
+</span><span>          ],
+</span><span>        ),
+</span><span>      ),
+</span><span>    );
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p>Se você deseja alternar o estado e não apenas defini-lo como falso/verdadeiro, pode usar if/else:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MyHomePage </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">StatefulWidget</span><span> {
+</span><span>  </span><span style="color:#ebcb8b;">MyHomePage</span><span>({</span><span style="color:#ebcb8b;">Key</span><span> key}) : </span><span style="color:#bf616a;">super</span><span>(key: key);
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">@override
+</span><span>  </span><span style="color:#ebcb8b;">_MyHomePageState </span><span style="color:#8fa1b3;">createState</span><span>() =&gt; </span><span style="color:#ebcb8b;">_MyHomePageState</span><span>();
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">_MyHomePageState </span><span style="color:#b48ead;">extends </span><span style="color:#ebcb8b;">State</span><span>&lt;</span><span style="color:#ebcb8b;">MyHomePage</span><span>&gt; {
+</span><span>  </span><span style="color:#ebcb8b;">bool</span><span> _clicked = </span><span style="color:#d08770;">false</span><span>;
+</span><span>
+</span><span>  </span><span style="color:#b48ead;">@override
+</span><span>  </span><span style="color:#ebcb8b;">Widget </span><span style="color:#8fa1b3;">build</span><span>(</span><span style="color:#ebcb8b;">BuildContext</span><span> context) {
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#ebcb8b;">Scaffold</span><span>(
+</span><span>      body: </span><span style="color:#ebcb8b;">Center</span><span>(
+</span><span>        child: </span><span style="color:#ebcb8b;">Column</span><span>(
+</span><span>          children: &lt;</span><span style="color:#ebcb8b;">Widget</span><span>&gt;[
+</span><span>            </span><span style="color:#b48ead;">if</span><span> (_clicked) </span><span style="color:#ebcb8b;">Text</span><span>(</span><span style="color:#a3be8c;">&#39;Botão foi clicado&#39;</span><span>),
+</span><span>            </span><span style="color:#ebcb8b;">FlatButton</span><span>(
+</span><span>              onPressed: () {
+</span><span>                </span><span style="color:#b48ead;">if</span><span> (_clicked) {
+</span><span>                    </span><span style="color:#8fa1b3;">setState</span><span>(() {
+</span><span>                        _clicked = </span><span style="color:#d08770;">false
+</span><span>                    })
+</span><span>                } </span><span style="color:#b48ead;">else</span><span> {
+</span><span>                    </span><span style="color:#8fa1b3;">setState</span><span>(() {
+</span><span>                        _clicked = </span><span style="color:#d08770;">true
+</span><span>                    })
+</span><span>                }
+</span><span>              },
+</span><span>              child: </span><span style="color:#ebcb8b;">Text</span><span>(</span><span style="color:#a3be8c;">&#39;Clique em mim&#39;</span><span>)
+</span><span>            ),
+</span><span>          ],
+</span><span>        ),
+</span><span>      ),
+</span><span>    );
+</span><span>  }
+</span><span>}
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

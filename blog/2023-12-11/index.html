@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-11</strong></p>
+<hr />
+<p>Today is Monday, day 345 of 365 (94.52%). We're in week 50 of 52 (96.15%).</p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+finish <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">API</a>'s tests</li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I finished the tests for the API, I wasn't completely right when I said the problem was the POST request was not being sent correctly, it was, the problem wa I was not 'saving' it before checking for the objects count. I also did some research on differentiating development and production constants for the <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a>, but I'm still a bit lost and will read more tomorrow.</p>
+<h2 id="learnings">Learnings</h2>
+<p>Today I learned to use:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>view = SnippetViewSet.</span><span style="color:#bf616a;">as_view</span><span>({&quot;</span><span style="color:#a3be8c;">&lt;request&gt;</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">&lt;view set method&gt;</span><span>&quot;})
+</span><span>response = </span><span style="color:#bf616a;">view</span><span>(request)
+</span></code></pre>
+<p>in my tests to save POST requests before checking anything. In DELETE and PUT requests I has to use:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>view = SnippetViewSet.</span><span style="color:#bf616a;">as_view</span><span>({&quot;</span><span style="color:#a3be8c;">&lt;request&gt;</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">&lt;view set method&gt;</span><span>&quot;})
+</span><span>response = </span><span style="color:#bf616a;">view</span><span>(request, </span><span style="color:#bf616a;">pk</span><span>=&lt;</span><span style="color:#96b5b4;">id</span><span>&gt;)
+</span></code></pre>
+<p>I also learned how to change multiple commit messages with:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git rebase -i HEAD~n
+</span></code></pre>
+<p>This will show you the last <code>n</code> commits in the terminal, it will look something like this:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>pick f7f3f6d feat: some commit message
+</span><span>pick 310154e chore: anoter commit
+</span><span>pick a5f4a0d fix: yet another commit
+</span><span>
+</span><span># Rebase 710f0f8..a5f4a0d onto 710f0f8
+</span><span>#
+</span><span># Commands:
+</span><span># p, pick &lt;commit&gt; = use commit
+</span><span># r, reword &lt;commit&gt; = use commit, but edit the commit message
+</span><span># e, edit &lt;commit&gt; = use commit, but stop for amending
+</span><span># s, squash &lt;commit&gt; = use commit, but meld into previous commit
+</span><span># f, fixup &lt;commit&gt; = like &quot;squash&quot;, but discard this commit&#39;s log message
+</span><span># x, exec &lt;command&gt; = run command (the rest of the line) using shell
+</span><span># b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)
+</span><span># d, drop &lt;commit&gt; = remove commit
+</span><span># l, label &lt;label&gt; = label current HEAD with a name
+</span><span># t, reset &lt;label&gt; = reset HEAD to a label
+</span><span># m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]
+</span><span># .       create a merge commit using the original merge commit&#39;s
+</span><span># .       message (or the oneline, if no original merge commit was
+</span><span># .       specified). Use -c &lt;commit&gt; to reword the commit message.
+</span><span>#
+</span><span># These lines can be re-ordered; they are executed from top to bottom.
+</span><span>#
+</span><span># If you remove a line here THAT COMMIT WILL BE LOST.
+</span><span>#
+</span><span># However, if you remove everything, the rebase will be aborted.
+</span><span>#
+</span><span># Note that empty commits are commented out
+</span></code></pre>
+<p>Here you can go ahead and change <code>pick</code> to <code>edit</code> in the commits you want to change, then save it and exit. After that you can use:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git commit --amend
+</span></code></pre>
+<p>to edit a commit and then</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git rebase --continue
+</span></code></pre>
+<p>to go to next one masked as <code>edit</code>. After editiing all the commits, just use <code>git push --force</code> (or the alias <code>gpf</code>) to update the remote repository if you has already pushed them.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

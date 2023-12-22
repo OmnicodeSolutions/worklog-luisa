@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-14</strong></p>
+<hr />
+<p>Today is Thursday, day 348 of 365 (95.34%). We're in week 50 of 52 (96.15%).</p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+continue working on <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a>'s login page</li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I finished the login page, it now has a static variable to keep the user's token. To get the token I just post the username and password given to the <code>auth-token</code> endpoint:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">final</span><span> response = </span><span style="color:#b48ead;">await</span><span> http.</span><span style="color:#8fa1b3;">post</span><span>(
+</span><span>          </span><span style="color:#ebcb8b;">Uri</span><span>.</span><span style="color:#8fa1b3;">parse</span><span>(</span><span style="color:#a3be8c;">&#39;http://your.url&#39;</span><span>),
+</span><span>          body: {</span><span style="color:#a3be8c;">&#39;username&#39;</span><span>: username, </span><span style="color:#a3be8c;">&#39;password&#39;</span><span>: password});
+</span></code></pre>
+<p>and return the token:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">var</span><span> data = </span><span style="color:#8fa1b3;">jsonDecode</span><span>(response.body.</span><span style="color:#8fa1b3;">toString</span><span>());
+</span><span style="color:#b48ead;">return</span><span> data[</span><span style="color:#a3be8c;">&#39;token&#39;</span><span>];
+</span></code></pre>
+<p>I also <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/tree/close_endpoints">closed all endpoints</a>, so now even the GET requests require authorization.</p>
+<h2 id="learnings">Learnings</h2>
+<p>Today I learned how to close the endpoints from an API by simply removing the request you want to request authorization for from SAFE_METHODS in <code>/env/lib/python3.11/site-packages/rest_framework/permissions.py</code> and adding <code>permission_classes</code> array to the views. The permission class looks top the safe methods to check if the current method needs authentication. This is the default permission (in permissions.py):</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>// </span><span style="color:#d08770;">...
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">IsAuthenticatedOrReadOnly</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">BasePermission</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;
+</span><span style="color:#65737e;">    The request is authenticated as a user, or is a read-only request.
+</span><span style="color:#65737e;">    &quot;&quot;&quot;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">has_permission</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">request</span><span>, </span><span style="color:#bf616a;">view</span><span>):
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">bool</span><span>(
+</span><span>            request.method in </span><span style="color:#bf616a;">SAFE_METHODS </span><span>or
+</span><span>            request.user and
+</span><span>            request.user.is_authenticated
+</span><span>        )
+</span><span>
+</span><span>// </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>to use it in the view you just have import it and define the <code>permission_classes</code> array:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>rest_framework </span><span style="color:#b48ead;">import </span><span>permissions
+</span><span>
+</span><span>// </span><span style="color:#d08770;">...
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ExampleView</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">APIView</span><span style="color:#eff1f5;">): </span><span>// I used it </span><span style="color:#b48ead;">with </span><span>APIView, ReadOnlyModelViewSet and ModelViewSet
+</span><span>    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+</span><span>
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

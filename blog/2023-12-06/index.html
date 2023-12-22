@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-06</strong></p>
+<hr />
+<p>Today is Wednesday, day 340 of 365 (93.15%). We're in week 49 of 52 (94.23%).</p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+continue working on <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a>'s login page</li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I continued working on the login topic by trying to make the token authentication work on the <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">API</a>, but I had a hard time making progress. When I tried to make the post request:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>http POST :8000/snippets/ &quot;Authorization: Token &lt;token&gt;&quot; code=&quot;print(123)&quot;
+</span></code></pre>
+<p>I got:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>HTTP/1.1 403 Forbidden
+</span><span>Allow: GET, POST, HEAD, OPTIONS
+</span><span>Content-Length: 58
+</span><span>Content-Type: application/json
+</span><span>Cross-Origin-Opener-Policy: same-origin
+</span><span>Date: Wed, 06 Dec 2023 14:14:53 GMT
+</span><span>Referrer-Policy: same-origin
+</span><span>Server: WSGIServer/0.2 CPython/3.11.5
+</span><span>Vary: Accept, Cookie
+</span><span>X-Content-Type-Options: nosniff
+</span><span>X-Frame-Options: DENY
+</span><span>
+</span><span>{
+</span><span>    &quot;detail&quot;: &quot;Authentication credentials were not provided.&quot;
+</span><span>}
+</span></code></pre>
+<p>So it looked like httpie was not recognizing the authentication header, and I didn't know why yet. I asked Mauricio for help and he found that, besides <code>INSTALLED_APPS</code>, we should also update the <code>REST_FRAMEWORK</code> in the settings file, so they now look like this:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">INSTALLED_APPS </span><span>= [
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    &#39;</span><span style="color:#a3be8c;">rest_framework.authtoken</span><span>&#39;,
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>]
+</span><span>
+</span><span style="color:#bf616a;">REST_FRAMEWORK </span><span>= {
+</span><span>    &#39;</span><span style="color:#a3be8c;">DEFAULT_AUTHENTICATION_CLASSES</span><span>&#39;: [
+</span><span>        &#39;</span><span style="color:#a3be8c;">rest_framework.authentication.TokenAuthentication</span><span>&#39;,
+</span><span>    ],
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>}
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

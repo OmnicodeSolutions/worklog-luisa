@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-07</strong></p>
+<hr />
+<p>Today is Thursday, day 341 of 365 (93.42%). We're in week 49 of 52 (94.23%).</p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+write tests for the <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">API</a></li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I started writing tests for the <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/views.py">API views</a>. I was not able to finish the tests, apparently the POST request is not geing sent correctly, but I couldn't figure out how to check that, so I'll finish it tomorrow.</p>
+<h2 id="learnings">Learnings</h2>
+<p>Today I learned about <a href="https://www.django-rest-framework.org/api-guide/testing/">testing with Django Rest Framework</a>. I learned about the APIRequestFactory class, it has all the <code>.get()</code>, <code>.post()</code>, <code>.delete()</code> methods, amongst others. I also used pudb to hep debug the code.</p>
+<p>From now on I will be pushing everythin I do to the remote repository in the end of the day, even if does not work/ins not finished. T do that I can just add the files and commit them as &quot;wip&quot;, then, the next day, I undo that commit and update the remote repository like so:</p>
+<p>To commit the files:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git add &lt;files&gt;
+</span><span>gcmsg &quot;wip&quot;
+</span><span>gp
+</span></code></pre>
+<p>To undo the commit and update remote repository:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git reset ~HEAD
+</span><span>gpf
+</span></code></pre>
+<p>Note that, <code>gp</code>, <code>gcmsg</code> and <code>gpf</code> are aliases of oh-my-zsh's git plugin.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

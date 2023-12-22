@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-11-03</strong></p>
+<hr />
+<p>Today is Friday, day 307 of 365 (84.10%). We're in week 44 of 52 (84.61%). </p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today: </p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<a href="https://github.com/encode/django-rest-framework/tree/master/docs/tutorial">continue DRF tutorial</a></li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I finished the parts 1 through 4 of the DRF tutorial, you can check the code <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">here</a></p>
+<h2 id="learnings">Learnings</h2>
+<p>Today I learned a lot about DRF, first I learned about <a href="https://github.com/encode/django-rest-framework/blob/master/docs/tutorial/1-serialization.md">serializers</a> and how to use them to create and update snippets. I also saw how to use the ModelSerializer class to keep the code more concise.</p>
+<p>In <a href="https://github.com/encode/django-rest-framework/blob/master/docs/tutorial/2-requests-and-responses.md">part 2</a> of the tutorial I learned how to use more explicit status codes, the Request object instead of the HttpRequest object to handle methods other than POST and the Response object to render responses into the correct type. This helps with error handling and making the code more concise and readable.</p>
+<p>In the <a href="https://github.com/encode/django-rest-framework/blob/master/docs/tutorial/3-class-based-views.md">next part</a> I rewrote the API views using class-based views and mixins and, alter on, generic class-based views, which shrank the code a lot.</p>
+<p>In the <a href="https://github.com/encode/django-rest-framework/blob/master/docs/tutorial/4-authentication-and-permissions.md">last part</a> I did today, I learned about permissions and authetication. I added a User model to track snippet's owner so that only it can modify/delete while other users have read only permission, which dependsa on adding login, so that we can have actual users and know who is trying to read/edit the snippet.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

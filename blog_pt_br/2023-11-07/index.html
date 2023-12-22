@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-11-07</strong></p>
+<hr />
+<p>Hoje é Terça, dia 311 de 365 (85.20%). Estamos na semana 45 de 52 (86.53%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/">coemçar cliente em Flutter</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje comecei a desenvolver um cliente Flutter para a <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">API do DRF</a> que criei ontem. Por enquanto, o cliente apenas retorna todos os atributos de um snippet. Enquanto pensava sobre como implementar o restante do cliente, percebi que não tinha acesso a todas as linguagens e estilos da API. Portanto, pedi a opinião do Maurício e ele sugeriu criar um endpoint com essas informações.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>A criação do endpoint mencionado na seção anterior foi um pouco complicada e levei algum tempo e ajuda para perceber que era muito mais simples do que eu imaginava, pois:</p>
+<ol>
+<li>Não havia necessidade de um serializador de opções;</li>
+<li>Não havia necessidade de um modelo de opções.</li>
+</ol>
+<p>Para finalizar, usei a <a href="https://www.django-rest-framework.org/api-guide/views/">APIView</a> para criar uma classe OptionsView que retorna um mapa das opções de linguagens e estilos determinadas no arquivo <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/models.py">models.py</a>. Por fim, adicionei um novo caminho nas urlpatterns no arquivo <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/urls.py">urls.py</a> que se vincula à visualização.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

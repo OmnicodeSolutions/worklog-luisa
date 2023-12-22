@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-07</strong></p>
+<hr />
+<p>Hoje é Quinta, dia 341 de 365 (93.42%). Estamos na semana 49 de 52 (94.23%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+escrever testes para a <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">API</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje, comecei a escrever testes para as <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/views.py">visualizações da API</a>. Não consegui concluir os testes; aparentemente, a solicitação POST não está sendo enviada corretamente, mas não consegui descobrir como verificar isso, então terminarei amanhã.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje, aprendi sobre <a href="https://www.django-rest-framework.org/api-guide/testing/">testes com Django Rest Framework</a>. Conheci a classe APIRequestFactory, que possui todos os métodos <code>.get()</code>, <code>.post()</code>, <code>.delete()</code>, entre outros. Também usei o pudb para ajudar a depurar o código.</p>
+<p>A partir de agora, vou enviar tudo o que fizer para o repositório remoto no final do dia, mesmo que não funcione/não esteja concluído. Para fazer isso, posso apenas adicionar os arquivos e comprometê-los como &quot;wip&quot;. Em seguida, no dia seguinte, desfaço esse commit e atualizo o repositório remoto assim:</p>
+<p>Para comprometer os arquivos:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git add &lt;files&gt;
+</span><span>gcmsg &quot;wip&quot;
+</span><span>gp
+</span></code></pre>
+<p>Para desfazer o commit e atualizar o repositório remoto:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>git reset ~HEAD
+</span><span>gpf
+</span></code></pre>
+<p>Note que, <code>gp</code>, <code>gcmsg</code> e <code>gpf</code> são aliases do plugin git do oh-my-zsh.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

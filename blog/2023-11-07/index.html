@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-11-07</strong></p>
+<hr />
+<p>Today is Tuesday, day 311 of 365 (85.20%). We're in week 45 of 52 (86.53%). </p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today: </p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/">start Flutter client</a></li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I started a Flutter client for the <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">DRF API</a> I created yesterday. For now, it just returns all the attributes of a snippet. While I was thinking about how to do the rest of the client it occured to me that I didn't have access to all of the languages and styles from the API, so I asked Maurício and he said to create an endpoint with that information.</p>
+<h2 id="learnings">Learnings</h2>
+<p>Making the endpoint I mentioned in the previous section was quite tricky and it took me some time and help to realize it was way more simple than what I was trying because:</p>
+<ol>
+<li>there was no need for a options serializer;</li>
+<li>there was no need for a options model.</li>
+</ol>
+<p>In order to finish it I used the <a href="https://www.django-rest-framework.org/api-guide/views/">APIView</a> to create a OptionsView class that returns a map of the languages and style choices determined in the <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/models.py">models.py</a> file. Lastly, I added a new path to the urlpatterns in <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/urls.py">urls.py</a> that links to the view.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

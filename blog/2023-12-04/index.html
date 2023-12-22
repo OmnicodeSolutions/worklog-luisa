@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-04</strong></p>
+<hr />
+<p>Today is Monday, day 338 of 365 (92.60%). We're in week 49 of 52 (94.23%).</p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+fix PATH with <a href="https://github.com/OmnicodeSolutions/ansible-debian">ansible-debian</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+learn about google login in Flutter and implement login to the <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a> using <a href="https://en.wikipedia.org/wiki/Test-driven_development#:~:text=Test%2Ddriven%20development%20(TDD),software%20against%20all%20test%20cases.">TDD</a></li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I fixed PATH with ansible-debian, at some point in the past I accidentaly removed <code>bin</code> from it, so I tried to update <a href="https://github.com/OmnicodeSolutions/ansible-debian/blob/main/playbooks/dotfiles/.zshrc">.zshrc</a> and run the <a href="https://github.com/OmnicodeSolutions/ansible-debian/blob/main/playbooks/shell.yaml">shell playbook</a> but it was not updating the <code>~/.zshrc</code> file. Me and Mauricio digured out it was because of the script used <code>sudo</code>, so it was in the root and not the user. To fix it I <a href="https://github.com/OmnicodeSolutions/ansible-debian/commit/312c6ca5fa525c1d3bee2cffc4010a0e808206f4">moved the <code>become: true</code></a> so that it is not used when installing dotfiles.</p>
+<p>After fixing ansible-debian, I started taking a look at login with Flutter. Using google to login seemed to advanced, so Mauricio and I agreed that it's better to take a look at the basics first, and then move on to that later. We also gave up on using TDD for now, maybe when I am more familiar with testing and Flutter itself I can go back to trying it. As for the <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/blob/login/lib/login.dart">login page</a> it only does some form validation for now, I'll start on the username/password authentication tomorrow.</p>
+<h2 id="learnings">Learnings</h2>
+<p>After running <code>make dotfile</code> and <code>source ~/.zshrc</code> to update the PATH I got an error message from oh-my-zsh:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>error: cannot open .git/FETCH_HEAD: Permission denied
+</span><span>There was an error updating. Try again later?
+</span></code></pre>
+<p>Taking a better look at the <code>.git/FETCH_HEAD</code> file in the <code>.oh-my-zsh</code> repository we saw that the owner was marked as root:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>➜  .oh-my-zsh git:(master) ll .git/FETCH_HEAD
+</span><span>-rw-r--r-- 1 root root 103 Oct  4 08:12 .git/FETCH_HEAD
+</span></code></pre>
+<p>So we used the following to change that:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>➜  .oh-my-zsh git:(master) sudo chown -R omnicoder.omnicoder .git/*
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-12</strong></p>
+<hr />
+<p>Hoje é Terça, dia 346 de 365 (94.79%). Estamos na semana 50 de 52 (96.15%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+diferenciar constantes de desenvolvimento e produção para o <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje, comecei a tentar usar o plugin Dart <a href="https://pub.dev/packages/flutter_config">flutter_config</a> para diferenciar constantes de desenvolvimento e produção, mas não consegui testá-lo. O plugin suporta apenas plataformas Android/iOS, o que não deveria ser um problema, pois já executei outros aplicativos no meu telefone antes. No entanto, desta vez, a notificação para autorizar o acesso não estava aparecendo por algum motivo. Tentei reiniciar meu telefone, alterar as configurações de notificação, desativar a opção de Depuração USB e ativá-la novamente, desativar completamente o modo de desenvolvedor e depois ativá-lo novamente. Também tentei todas as portas USB e dois cabos diferentes, mas nada disso funcionou. Após toda essa dificuldade, decidi tentar executar o aplicativo com o Android Studio, mas recebi alguns erros estranhos que não estão aparecendo no VSCode.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje, aprendi sobre o plugin flutter_config do Dart. Para usá-lo, você precisa:</p>
+<ol>
+<li>Instalar o plugin:</li>
+</ol>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>flutter pub add flutter_config
+</span></code></pre>
+<ol start="2">
+<li>Criar um arquivo <code>.env</code> na raiz do aplicativo e escrever suas constantes usando a sintaxe:</li>
+</ol>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>CONST_NAME=sometext
+</span><span>OTHER_CONST=someothertext
+</span></code></pre>
+<ol start="3">
+<li>Importar o pacote e carregar as constantes em <code>main.dart</code>:</li>
+</ol>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">import </span><span style="color:#a3be8c;">&#39;package:flutter_config/flutter_config.dart&#39;</span><span>;
+</span><span>
+</span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">main</span><span>() </span><span style="color:#b48ead;">async</span><span> {
+</span><span>  </span><span style="color:#ebcb8b;">WidgetsFlutterBinding</span><span>.</span><span style="color:#8fa1b3;">ensureInitialized</span><span>();
+</span><span>  </span><span style="color:#b48ead;">await </span><span style="color:#ebcb8b;">FlutterConfig</span><span>.</span><span style="color:#8fa1b3;">loadEnvVariables</span><span>();
+</span><span>
+</span><span>  </span><span style="color:#8fa1b3;">runApp</span><span>(</span><span style="color:#ebcb8b;">MyApp</span><span>());
+</span><span>}
+</span></code></pre>
+<ol start="4">
+<li>Usar o método <code>get()</code> para acessar suas constantes em qualquer lugar no aplicativo (não se esqueça de importar o plugin se estiver em outro arquivo):</li>
+</ol>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">import </span><span style="color:#a3be8c;">&#39;package:flutter_config/flutter_config.dart&#39;</span><span>;
+</span><span>
+</span><span style="color:#ebcb8b;">FlutterConfig</span><span>.</span><span style="color:#b48ead;">get</span><span>(</span><span style="color:#a3be8c;">&#39;CONST_NAME&#39;</span><span>) </span><span style="color:#65737e;">// retorna &#39;sometext&#39;
+</span></code></pre>
+<p>Eu ainda não cheguei a esta parte, mas para usar <code>FlutterConfig</code> nos testes, você precisa carregar os valores. Este é o exemplo na <a href="https://pub.dev/packages/flutter_config#:~:text=iOS%20Setup%20Guide-,Testing,-%23">documentação</a>:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">import </span><span style="color:#a3be8c;">&#39;package:flutter_config/flutter_config.dart&#39;</span><span>;
+</span><span>
+</span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>  </span><span style="color:#ebcb8b;">FlutterConfig</span><span>.</span><span style="color:#8fa1b3;">loadValueForTesting</span><span>({</span><span style="color:#a3be8c;">&#39;BASE_URL&#39;</span><span>: </span><span style="color:#a3be8c;">&#39;https://www.mockurl.com&#39;</span><span>});
+</span><span>
+</span><span>  </span><span style="color:#8fa1b3;">test</span><span>(</span><span style="color:#a3be8c;">&#39;mock http client test&#39;</span><span>, () {
+</span><span>    </span><span style="color:#b48ead;">final</span><span> client = </span><span style="color:#ebcb8b;">HttpClient</span><span>(
+</span><span>      baseUrl: </span><span style="color:#ebcb8b;">FlutterConfig</span><span>.</span><span style="color:#b48ead;">get</span><span>(</span><span style="color:#a3be8c;">&#39;BASE_URL&#39;</span><span>)
+</span><span>    );
+</span><span>  });
+</span><span>}
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

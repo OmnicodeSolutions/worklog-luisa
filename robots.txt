@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://omnicode.com.br/worklog-luisa/sitemap.xml

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  My learnings at Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-01</strong></p>
+<hr />
+<p>Today is Friday, day 335 of 365 (91.78%). We're in week 48 of 52 (92.30%).</p>
+<h2 id="planning">Planning</h2>
+<p>What I am going to do today:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+finish unit tests for the <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a></li>
+</ul>
+<h2 id="activities-executed">Activities executed</h2>
+<p>Today I was finally able to finish the tests. I didn't have to switch back to nock. I just had to implement a few more things from <a href="https://pub.dev/packages/mockito">mockito</a>.</p>
+<p>I also did some rearranging in the project's structure and renamed a few things based on Clean Code.</p>
+<h2 id="learnings">Learnings</h2>
+<p>Today I learned that to make mockito work I had to use the <code>@GenerateNiceMocks</code> annotation to tell mockito which classes to mock and Dart's <a href="https://pub.dev/packages/build_runner">build runner</a> to generate a .mock.dart file. In the end, the code looks kinda like this:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">@GenerateNiceMocks</span><span>([</span><span style="color:#ebcb8b;">MockSpec</span><span>&lt;</span><span style="color:#ebcb8b;">ClassName</span><span>&gt;()])
+</span><span style="color:#b48ead;">import </span><span style="color:#a3be8c;">&#39;file_name_test.mocks.dart&#39;</span><span>;
+</span></code></pre>
+<p>and after adding that you have to run:</p>
+<p><code>dart run build_runner build</code></p>
+<p>to generate file_name_test.mocks.dart.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

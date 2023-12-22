@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-11-06</strong></p>
+<hr />
+<p>Hoje é Segunda, dia 310 de 365 (84.93%). Estamos na semana 45 de 52 (86.53%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<a href="https://github.com/encode/django-rest-framework/tree/master/docs/tutorial">terminar tutorial de DRF</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje, terminei o tutorial do DRF e comecei a trabalhar um pouco mais no <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">repositório</a>.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje, aprendi sobre <a href="https://www.geeksforgeeks.org/json-load-in-python/">.json files (arquivos .json)</a> e <a href="https://docs.djangoproject.com/en/4.2/topics/db/fixtures/">fixtures no Django</a>. No meu caso, usei esses conceitos para criar o arquivo <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/snippets/fixtures/users.json">users.json</a> e criar alguns usuários iniciais para a API. Também tive que fazer uma <a href="https://docs.djangoproject.com/en/4.2/topics/migrations/#data-migrations">migração</a> para realmente salvar os usuários mencionados anteriormente no banco de dados e criar e salvar um superusuário (cujos detalhes são definidos no arquivo <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial/blob/main/tutorial/tutorial/settings.py">settings.py do projeto</a>).</p>
+<p>Enquanto tentava fazer a nova migração, tive alguns problemas para ler o arquivo users.json, então usei o <a href="https://github.com/inducer/pudb">pudb</a> para depurar e descobri que havia na verdade 2 arquivos users.json e o segundo era inútil. Tudo o que tive que fazer foi excluí-lo e corrigir o caminho para o arquivo correto, e funcionou.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

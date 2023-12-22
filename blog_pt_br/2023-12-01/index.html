@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-01</strong></p>
+<hr />
+<p>Hoje é Sexta, dia 335 de 365 (91.78%). Estamos na semana 48 de 52 (92.30%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+terminar testes unitários para o <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje, finalmente consegui terminar os testes, e não precisei voltar para o nock; só precisei implementar mais algumas coisas do <a href="https://pub.dev/packages/mockito">mockito</a>.</p>
+<p>Também fiz algumas reorganizações na estrutura do projeto e renomeei algumas coisas com base nos princípios de Clean Code.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje aprendi que, para fazer o mockito funcionar, tive que usar a anotação <code>@GenerateNiceMocks</code> para informar ao mockito quais classes mockar e o <a href="https://pub.dev/packages/build_runner">build runner</a> do Dart para gerar um arquivo .mock.dart. No final, o código parece mais ou menos assim:</p>
+<pre data-lang="dart" style="background-color:#2b303b;color:#c0c5ce;" class="language-dart "><code class="language-dart" data-lang="dart"><span style="color:#b48ead;">@GenerateNiceMocks</span><span>([</span><span style="color:#ebcb8b;">MockSpec</span><span>&lt;</span><span style="color:#ebcb8b;">ClassName</span><span>&gt;()])
+</span><span style="color:#b48ead;">import </span><span style="color:#a3be8c;">&#39;file_name_test.mocks.dart&#39;</span><span>;
+</span></code></pre>
+<p>e depois de adicionar isso, você precisa executar:</p>
+<p><code>dart run build_runner build</code></p>
+<p>para gerar o arquivo file_name_test.mocks.dart.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

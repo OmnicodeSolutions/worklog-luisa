@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-05</strong></p>
+<hr />
+<p>Hoje é Terça, dia 339 de 365 (92.87%). Estamos na semana 49 de 52 (94.23%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+diferenciar constantes de desenvolvimento e de produção no <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a></li>
+<li><input disabled="" type="checkbox" checked=""/>
+continuar a página de login do<a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje, eu não trabalhei na própria página de login, mas avancei no tópico trabalhando na <a href="https://github.com/OmnicodeSolutions/luisa_drf_tutorial">API</a>.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje, aprendi sobre autenticação com o <a href="https://www.django-rest-framework.org/">Django Rest Framework</a> e adicionei um endpoint de autenticação de token à API usando a <a href="https://www.django-rest-framework.org/api-guide/authentication/#by-exposing-an-api-endpoint">visão <code>obtain_auth_token</code></a>.</p>
+<p>Estou usando <a href="https://httpie.io/">HTTPie</a> e para gerar um token, você só precisa fazer um post no endpoint, no meu caso <code>auth-token/</code>, com o nome de usuário e senha:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">http</span><span> POST :8000/auth-token/ password=&#39;</span><span style="color:#a3be8c;">password</span><span>&#39; username=&#39;</span><span style="color:#a3be8c;">username</span><span>&#39;
+</span></code></pre>
+<p>Ainda estou tendo alguns problemas para entender como realmente usar o token como autenticador, mas, de acordo com a <a href="https://httpie.io/docs/cli/authentication">documentação do httpie</a>, deve se parecer com algo assim:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">http -A</span><span> bearer</span><span style="color:#bf616a;"> -a</span><span> 448b01551721565eaa5f0aff2e33c206ce571c5a :8000/snippets/ code=&quot;</span><span style="color:#a3be8c;">print(123)</span><span>&quot;
+</span></code></pre>
+<p>Também encontrei alguns sites (como <a href="https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html">este</a>) dizendo que eu deveria usar algo assim:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">http</span><span> :8000/endpoint/ &#39;</span><span style="color:#a3be8c;">Authorization: Token 9054f7aa9305e012b3c2300408c3dfdf390fcddf</span><span>&#39;
+</span></code></pre>
+<p>mas não consegui fazê-lo funcionar para POST requests.</p>
+<p>Para autenticar com nome de usuário e senha (<a href="https://httpie.io/docs/cli/basic-auth">autenticação básica</a>), usamos isso:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">http -a</span><span> username:password :8000/snippets/ code=&quot;</span><span style="color:#a3be8c;">print(123)</span><span>&quot;
+</span></code></pre>
+
+
+    </div>
+  </section>
+</body>
+
+</html>

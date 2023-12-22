@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MyBlog</title>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      
+<h1 class="title">
+  Meus estudos na Omnicode
+</h1>
+<p class="subtitle"><strong>2023-12-13</strong></p>
+<hr />
+<p>Hoje é Quarta, dia 347 de 365 (95.06%). Estamos na semana 50 de 52 (96.15%).</p>
+<h2 id="planejamento">Planejamento</h2>
+<p>O que vou fazer hoje:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+diferenciar constantes de desenvolvimento e produção para o <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client">Flutter Client</a></li>
+</ul>
+<h2 id="atividades-executadas">Atividades executadas</h2>
+<p>Hoje consegui executar o Flutter Client usando um emulador. Após os testes, ocorreram algumas exceções, mas consegui corrigi-las e agora tudo funciona bem.</p>
+<h2 id="aprendizados">Aprendizados</h2>
+<p>Hoje aprendi:</p>
+<ol>
+<li>Como usar um emulador com o Flutter:</li>
+</ol>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>flutter emulators # para verificar se há emuladores disponíveis
+</span><span>flutter emulators --launch emulatorID # para iniciar o emulador
+</span><span>flutter run # o emulador deve aparecer como uma opção de dispositivo ou o Flutter o usará automaticamente
+</span></code></pre>
+<ol start="2">
+<li>Que o localhost para dispositivos Android é <code>10.0.2.2</code> em vez de <code>127.0.0.1</code>, o que causou a primeira exceção que mencionei na seção anterior:</li>
+</ol>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>ClientException with SocketException: Connection refused (OS Error: Connection refused, errno = 111), address = 127.0.0.1, port = 41370, uri=http://127.0.0.1:8000.
+</span></code></pre>
+<ol start="3">
+<li>Dispositivos que usam Android 12 ou posterior têm um novo recurso chamado 'back button handling', e ele precisa ser ativado no <a href="https://github.com/OmnicodeSolutions/luisa_drf_flutter_client/blob/login/android/app/src/main/AndroidManifest.xml">Manifest do Android</a> adicionando <code>android:enableOnBackInvokedCallback</code> à tag <code>&lt;application&gt;</code>. Deve se parecer com isso:</li>
+</ol>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">application
+</span><span>    </span><span style="color:#d08770;">android:name</span><span>=&quot;</span><span style="color:#a3be8c;">io.flutter.app.FlutterApplication</span><span>&quot;
+</span><span>    </span><span style="color:#d08770;">android:label</span><span>=&quot;</span><span style="color:#a3be8c;">YourAppName</span><span>&quot;
+</span><span>    </span><span style="color:#d08770;">android:icon</span><span>=&quot;</span><span style="color:#a3be8c;">@mipmap/ic_launcher</span><span>&quot;
+</span><span>    </span><span style="color:#d08770;">android:enableOnBackInvokedCallback</span><span>=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot;&gt;
+</span><span>    </span><span style="color:#65737e;">&lt;!-- ... --&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">application</span><span>&gt;
+</span></code></pre>
+<p>Esta linha ausente foi o que causou este aviso:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>W/WindowOnBackDispatcher( 9971): OnBackInvokedCallback is not enabled for the application.
+</span><span>W/WindowOnBackDispatcher( 9971): Set &#39;android:enableOnBackInvokedCallback=&quot;true&quot;&#39; in the application manifest.
+</span></code></pre>
+<p>Lembrando que o aplicativo funcionava perfeitamente sem essa configuração, mas, ao investigar e descobrir o que era, achei melhor manter o aplicativo atualizado.</p>
+
+
+    </div>
+  </section>
+</body>
+
+</html>
