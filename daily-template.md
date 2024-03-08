@@ -1,6 +1,9 @@
 +++
 title = "TITLE"
 date = DATE
+
+[taxonomies]
+authors = ["Luísa Coelho"]
 +++
 
 ---
