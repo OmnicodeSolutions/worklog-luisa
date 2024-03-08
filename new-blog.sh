@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
 today=${1:-$(date +%F)}
-debug=$2
+author=${2:-"Luísa Coelho"}
+debug=$3
 
 # TODO: validate if $today is a valid date in YYYY-MM-DD
 
@@ -33,6 +34,16 @@ then
     mv $new_file ${new_file}.temp
 
     cat ${new_file_pt_br}.temp | sed -e "s#DATE#${today}#" > $new_file_pt_br
+    mv $new_file_pt_br ${new_file_pt_br}.temp
+fi
+
+# replace author
+if [ -z $debug ]
+then
+    cat ${new_file}.temp | sed -e "s#AUTHOR#${author}#" > $new_file
+    mv $new_file ${new_file}.temp
+
+    cat ${new_file_pt_br}.temp | sed -e "s#AUTHOR#${author}#" > $new_file_pt_br
     mv $new_file_pt_br ${new_file_pt_br}.temp
 fi 
 
