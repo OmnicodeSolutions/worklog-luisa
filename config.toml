@@ -35,9 +35,9 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-author = "Luísa"
-github = "https://github.com/LuCCoelho"
-email = "luisa@omnicode.solutions"
+author = "Omnicode Developers"
+github = "https://github.com/omnicodeSolutions"
+email = "team@omnicode.solutions"
 
 # Set HTML file language
 language_code = "en-US"
