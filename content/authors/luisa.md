@@ -8,4 +8,4 @@ draft = false
 
 Intern at **Omnicode**.
 
-[@aaranxu](https://github.com/aaranxu)
+[@LuCCoelho](https://github.com/luccoelho)
