@@ -87,6 +87,12 @@ section = "blog" # see config.extra.main~url
 ## Sitelinks Search Box
 site_links_search_box = false
 
+## Brazilian portuguese translations
+[languages.pt]
+generate_feed = true
+build_search_index = true
+taxonomies = [{name = "autores"}]
+
 
 # Menu items
 [[extra.menu.main]]
