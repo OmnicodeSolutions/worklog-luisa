@@ -14,10 +14,22 @@ minify_html = false
 
 # The taxonomies to be rendered for the site and their configuration.
 taxonomies = [
-  {name = "authors"}, # Basic definition: no feed or pagination
+  {name = "authors", lang = "en"},
+  {name = "authors", lang = "pt"}, # Basic definition: no feed or pagination
 ]
 
 # Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+## Brazilian portuguese translations
+[languages.pt]
+compile_sass = true
+generate_feed = true
+minify_html = false
+taxonomies = [
+  {name = "authors", lang = "en"},
+  {name = "authors", lang = "pt"}, # Basic definition: no feed or pagination
+]
 build_search_index = true
 
 [search]
@@ -86,13 +98,6 @@ github = "https://github.com/aaranxu"
 section = "blog" # see config.extra.main~url
 ## Sitelinks Search Box
 site_links_search_box = false
-
-## Brazilian portuguese translations
-[languages.pt]
-generate_feed = true
-build_search_index = true
-taxonomies = [{name = "autores"}]
-
 
 # Menu items
 [[extra.menu.main]]
