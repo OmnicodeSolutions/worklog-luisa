@@ -2,7 +2,11 @@
 
 {% block seo %}
   {% set author_name_in_url = term.permalink | trim_end_matches(pat="/") | split(pat="/") | last %}
-  {% set section = get_section(path="authors/_index.md") %}
+  {% if lang == "en" %}
+    {% set_global section = get_section(path="authors/_index.md") %}
+  {% else %}
+    {% set_global section = get_section(path="authors/_index.pt.md") %}
+  {% endif %}
   
   {% if section.extra.author_pages[author_name_in_url] %}
     {% set_global author_page = get_page(path=section.extra.author_pages[author_name_in_url])%}
@@ -57,7 +61,11 @@
 						    <div class="card-body">
 							    <h2 class="h3"><a class="stretched-link text-body" href="{{ page.permalink }}">{{ page.title }}</a></h2>
 								    {% if page.extra.lead %}<p>{{ page.extra.lead | safe }}</p>{% elif page.description %}<p>{{ page.description | safe }}</p>{% endif %}
-                    {{ macros_publish::page_publish_metadata(page=page) }}
+                    {% if lang == "en" %}
+                      {{ macros_publish::page_publish_metadata(page=page) }}
+                    {% else %}
+                      {{ macros_publish_pt::page_publish_metadata(page=page) }}
+                    {% endif %}
 					    	</div>
 					    </div>
 				    {% endfor %}
