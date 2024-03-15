@@ -27,6 +27,6 @@ content = 'Read the blog <a href="http://127.0.0.1:1111/blog/">in english</a>'
 
 [[extra.list]]
 title = "Portuguese"
-content = 'Read the blog <a href="http://127.0.0.1:1111/blog_pt_br/">in portuguese</a>'
+content = 'Read the blog <a href="http://127.0.0.1:1111/pt/blog/">in portuguese</a>'
 
 +++
