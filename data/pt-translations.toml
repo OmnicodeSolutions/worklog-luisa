@@ -6,3 +6,7 @@ settings_date_format = "%d de %B de %Y"
 published_on = "Publicado em"
 by = "por"
 min_read = "min de leitura"
+
+# Pagination language settings
+newer = "Anterior"
+older = "Próximo"

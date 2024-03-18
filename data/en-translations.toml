@@ -6,3 +6,7 @@ settings_date_format = "%B %d, %Y"
 published_on = "Posted"
 by = "by"
 min_read = "min read"
+
+# Pagination language settings
+newer = "Newer"
+older = "Older"
