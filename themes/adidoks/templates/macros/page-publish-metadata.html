@@ -1,3 +1,10 @@
 {% macro page_publish_metadata(page) %}
-<p><small>Posted {{ page.date | date(format=config.extra.timeformat | default(value="%Y-%m-%d %H:%M:%S"), timezone=config.extra.timezone | default(value="America/New_York")) }}{% if page.taxonomies.authors and config.taxonomies %} by {% for author in page.taxonomies.authors %}{% if author_flag %} and {% endif %}<a class="stretched-link position-relative" href="{{ get_taxonomy_url(kind='authors', name=author) | safe }}">{{ author }}</a>{% set_global author_flag = true %}{% endfor %}{% endif %}&nbsp;&hyphen;&nbsp;<strong>{{ page.reading_time }}&nbsp;min read</strong></small><p>
+{% set res         = load_data(path='data/' ~ page.lang ~ '-translations.toml') %}
+{% set date_locale = res.settings_date_locale | default(value="en_US")     %}
+{% set date_format = res.settings_date_format | default(value="%B %d, %Y") %}
+{% set published_on = res.published_on | default(value="Posted") %}
+{% set by = res.by | default(value="by") %}
+{% set min_read = res.min_read | default(value="min read") %}
+
+<p><small>{{published_on}} {{ page.date | date(format=date_format | default(value="%Y-%m-%d %H:%M:%S"), timezone=config.extra.timezone | default(value="America/New_York")) }}{% if page.taxonomies.authors and config.taxonomies %} {{by}} {% for author in page.taxonomies.authors %}{% if author_flag %} and {% endif %}<a class="stretched-link position-relative" href="{{ get_taxonomy_url(kind='authors', name=author) | safe }}">{{ author }}</a>{% set_global author_flag = true %}{% endfor %}{% endif %}&nbsp;&hyphen;&nbsp;<strong>{{ page.reading_time }}&nbsp;{{min_read}}</strong></small><p>
 {% endmacro %}
