@@ -1,0 +1,8 @@
+# Global settings
+settings_date_locale = "pt"
+settings_date_format = "%d de %B de %Y"
+
+# Publish language settings
+published_on = "Publicado em"
+by = "por"
+min_read = "min de leitura"

@@ -1,0 +1,8 @@
+# Global settings
+settings_date_locale = "en_US"
+settings_date_format = "%B %d, %Y"
+
+# Publish language settings
+published_on = "Posted"
+by = "by"
+min_read = "min read"
