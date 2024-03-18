@@ -61,11 +61,7 @@
 						    <div class="card-body">
 							    <h2 class="h3"><a class="stretched-link text-body" href="{{ page.permalink }}">{{ page.title }}</a></h2>
 								    {% if page.extra.lead %}<p>{{ page.extra.lead | safe }}</p>{% elif page.description %}<p>{{ page.description | safe }}</p>{% endif %}
-                    {% if lang == "en" %}
                       {{ macros_publish::page_publish_metadata(page=page) }}
-                    {% else %}
-                      {{ macros_publish_pt::page_publish_metadata(page=page) }}
-                    {% endif %}
 					    	</div>
 					    </div>
 				    {% endfor %}
