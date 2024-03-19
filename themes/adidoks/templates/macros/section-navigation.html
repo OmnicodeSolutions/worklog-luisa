@@ -1,0 +1,26 @@
+{% macro navigation(paginator, page) %}
+{% set res         = load_data(path='data/' ~ page.lang ~ '-translations.toml') %}
+{% set newer = res.newer | default(value="Newer") %}
+{% set older = res.older | default(value="Older") %}
+
+<div class="blog-navigation d-flex justify-content-between">
+	{% if paginator.previous %}
+	<a href="{{ paginator.previous | safe }}">
+		<div class="card my-1">
+			<div class="card-body py-2">
+				← {{newer}}
+			</div>
+		</div>
+	</a>
+	{% endif %}
+	{% if paginator.next %}
+	<a class="ms-auto" href="{{ paginator.next | safe }}">
+		<div class="card my-1">
+			<div class="card-body py-2">
+				{{older}} →
+			</div>
+		</div>
+	</a>
+	{% endif %}
+</div>
+{% endmacro %}
