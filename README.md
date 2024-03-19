@@ -1,5 +1,4 @@
-# worklog-luisa
-Daily blog of internship activities
+# blog
+This is our blog
 
-
-https://omnicode.com.br/worklog-luisa
+https://omnicode.com.br/blog
