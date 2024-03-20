@@ -10,3 +10,6 @@ min_read = "min read"
 # Pagination language settings
 newer = "Newer"
 older = "Older"
+
+# Header translations
+search = "Search docs..."

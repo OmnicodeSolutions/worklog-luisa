@@ -10,3 +10,6 @@ min_read = "min de leitura"
 # Pagination language settings
 newer = "Anterior"
 older = "Próximo"
+
+# Header translations
+search = "Procurar arquivo..."
