@@ -1,5 +1,5 @@
 # Global settings
-settings_date_locale = "pt"
+settings_date_locale = "pt_BR"
 settings_date_format = "%d de %B de %Y"
 
 # Publish language settings
