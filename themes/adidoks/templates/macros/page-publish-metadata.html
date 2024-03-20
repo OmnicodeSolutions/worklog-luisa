@@ -1,5 +1,5 @@
 {% macro page_publish_metadata(page) %}
-{% set res         = load_data(path='data/' ~ page.lang ~ '-translations.toml') %}
+{% set res         = load_data(path='data/' ~ lang ~ '-translations.toml') %}
 {% set date_locale = res.settings_date_locale | default(value="en_US")     %}
 {% set date_format = res.settings_date_format | default(value="%B %d, %Y") %}
 {% set published_on = res.published_on | default(value="Posted") %}
