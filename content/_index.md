@@ -7,7 +7,7 @@ title = "Omnicode's Worklog"
 # Menu items
 [extra]
 lead = "This is how we work"
-repo_url = "https://github.com/OmnicodeSolutions/worklog-luisa/"
+repo_url = "https://github.com/OmnicodeSolutions/blog/"
 
 [[extra.menu.main]]
 name = "Docs"
