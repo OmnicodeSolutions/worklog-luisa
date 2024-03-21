@@ -47,7 +47,7 @@
         {% for val in section.extra.list %}
         <div class="col-lg-5">
           <h2 class="h4">{{ val.title }}</h2>
-          <p>{{ val.content | safe }}</p>
+          <p>Read the blog in <a href="{{ get_url(path=val.path) }}">{{ val.lang }}</a></p>
         </div>
         {% endfor %}
       {% else %}
