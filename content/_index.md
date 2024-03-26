@@ -23,10 +23,12 @@ weight = 20
 
 [[extra.list]]
 title = "English"
-content = 'Read the blog <a href="http://127.0.0.1:1111/blog/">in english</a>'
+lang = "english"
+path = "@/blog/_index.md"
 
 [[extra.list]]
 title = "Portuguese"
-content = 'Read the blog <a href="http://127.0.0.1:1111/pt/blog/">in portuguese</a>'
+lang = "portuguese"
+path = "@/blog/_index.pt.md"
 
 +++
