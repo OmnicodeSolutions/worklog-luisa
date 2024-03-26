@@ -29,7 +29,7 @@
             </div>
             {% endfor %}
             {% if paginator.previous or paginator.next %}
-              {{ macros_section_nav::navigation(paginator=paginator, page=paginator.pages[0]) }}
+              {{ macros_section_nav::navigation(paginator=paginator) }}
             {% endif %}
           </div>
         </article>

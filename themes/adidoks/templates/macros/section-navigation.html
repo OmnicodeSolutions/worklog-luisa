@@ -1,5 +1,5 @@
-{% macro navigation(paginator, page) %}
-{% set res         = load_data(path='data/' ~ page.lang ~ '-translations.toml') %}
+{% macro navigation(paginator) %}
+{% set res         = load_data(path='data/' ~ lang ~ '-translations.toml') %}
 {% set newer = res.newer | default(value="Newer") %}
 {% set older = res.older | default(value="Older") %}
 

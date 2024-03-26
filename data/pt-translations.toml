@@ -1,5 +1,5 @@
 # Global settings
-settings_date_locale = "pt"
+settings_date_locale = "pt_BR"
 settings_date_format = "%d de %B de %Y"
 
 # Publish language settings
@@ -10,6 +10,9 @@ min_read = "min de leitura"
 # Pagination language settings
 newer = "Anterior"
 older = "Próximo"
+
+# Header translations
+search = "Procurar arquivo..."
 
 # Home translations
 read_blog_in = "Leia o blog em"
