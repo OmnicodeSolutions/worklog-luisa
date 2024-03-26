@@ -18,7 +18,7 @@ weight = 10
 [[extra.menu.main]]
 name = "Blog"
 section = "blog"
-url = "/blog/pt"
+url = "/pt/blog"
 weight = 20
 
 [[extra.list]]
