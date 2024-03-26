@@ -9,12 +9,6 @@ lead = "É assim que trabalhamos"
 repo_url = "https://github.com/OmnicodeSolutions/blog/"
 
 [[extra.menu.main]]
-name = "Docs"
-section = "docs"
-url = "/docs/getting-started/introduction/"
-weight = 10
-
-[[extra.menu.main]]
 name = "Blog"
 section = "posts"
 url = "pt/posts/"
