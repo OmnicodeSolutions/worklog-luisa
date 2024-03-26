@@ -13,3 +13,6 @@ older = "Older"
 
 # Header translations
 search = "Search docs..."
+
+# Home translations
+read_blog_in = "Read the blog in"

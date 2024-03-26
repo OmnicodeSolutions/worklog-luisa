@@ -13,3 +13,6 @@ older = "Próximo"
 
 # Header translations
 search = "Procurar arquivo..."
+
+# Home translations
+read_blog_in = "Leia o blog em"

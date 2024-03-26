@@ -9,7 +9,7 @@ debug=$3
 new_file=content/blog/${today}.md
 cp daily-template.md ${new_file}.temp
 
-new_file_pt_br=content/blog_pt_br/${today}.md
+new_file_pt_br=content/blog/${today}.pt.md
 cp template-diario.md ${new_file_pt_br}.temp
 
 ## Title

@@ -1,7 +1,6 @@
 +++
 title = "Worklog da Omnicode"
 
-
 # The homepage contents
 
 # Menu items
@@ -18,15 +17,17 @@ weight = 10
 [[extra.menu.main]]
 name = "Blog"
 section = "blog"
-url = "/blog/pt"
+url = "pt/blog/"
 weight = 20
 
 [[extra.list]]
 title = "English"
-content = 'Leia o blog <a href="http://127.0.0.1:1111/blog/">em inglês</a>'
+lang = "inglês"
+path = "@/blog/_index.md"
 
 [[extra.list]]
 title = "Portuguese"
-content = 'Leia o blog <a href="http://127.0.0.1:1111/pt/blog">em português</a>'
+lang = "português"
+path = "@/blog/_index.pt.md"
 
 +++
