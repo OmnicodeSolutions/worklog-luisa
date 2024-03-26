@@ -2,6 +2,7 @@
 
 {% block seo %}
   {% set author_name_in_url = term.permalink | trim_end_matches(pat="/") | split(pat="/") | last %}
+  {% set_global current_section = [ "authors", author_name_in_url ] | join(sep="/") %}
   {% if lang == "en" %}
     {% set_global section = get_section(path="authors/_index.md") %}
   {% else %}
@@ -38,6 +39,10 @@
   
   {{ macros_head::seo(title=title, title_addition=title_addition, description=description) }}
 {% endblock seo %}
+
+{% block header %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
 
 {% block body %}
   {% if page.extra.class %}

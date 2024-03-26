@@ -1,6 +1,8 @@
 {% extends "section.html" %}
 
 {% block seo %}
+  {% set_global current_section = "authors" %}
+
   {% set title_addition = "" %}
   {% if config.extra.title_separator %}
     {% set title_separator = " " ~ config.extra.title_separator ~ " " %}
@@ -31,6 +33,10 @@
   
   {{ macros_head::seo(title=title, title_addition=title_addition, description=description) }}
 {% endblock seo %}
+
+{% block header %}
+  {{ macros_header::header(current_section=current_section)}}
+{% endblock header %}
 
 {% block body %}
   {% if section.extra.class %}
