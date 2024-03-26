@@ -10,3 +10,6 @@ min_read = "min read"
 # Pagination language settings
 newer = "Newer"
 older = "Older"
+
+# Home translations
+read_blog_in = "Read the blog in"
