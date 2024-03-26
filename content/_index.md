@@ -1,7 +1,6 @@
 +++
 title = "Omnicode's Worklog"
 
-
 # The homepage contents
 
 # Menu items
@@ -17,18 +16,18 @@ weight = 10
 
 [[extra.menu.main]]
 name = "Blog"
-section = "blog"
-url = "/blog/"
+section = "posts"
+url = "/posts/"
 weight = 20
 
 [[extra.list]]
 title = "English"
 lang = "english"
-path = "@/blog/_index.md"
+path = "@/posts/_index.md"
 
 [[extra.list]]
 title = "Portuguese"
 lang = "portuguese"
-path = "@/blog/_index.pt.md"
+path = "@/posts/_index.pt.md"
 
 +++
