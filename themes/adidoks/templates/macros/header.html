@@ -53,6 +53,17 @@
 					<a class="nav-link" href="{{ get_url(path="blog", trailing_slash=true) | safe }}">Blog</a>
 				</li>
 				{% endif %}
+				{% if lang == "en" %} 
+					{% set other_lang="pt" %}
+					{% set other_lang_code="PT" %}
+				{% else %}
+					{% set other_lang="" %}
+					{% set other_lang_code="EN" %}
+				{% endif %}
+
+				<li class="nav-item">
+					<a class="nav-link" href="{{ get_url(path=current_section, lang=other_lang) | safe }}">{{ other_lang_code }}</a>
+				</li>
 			</ul>
 			<div class="break order-6 d-md-none"></div>
 			{% if config.build_search_index %}
